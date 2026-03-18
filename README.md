@@ -15,7 +15,7 @@ By identifying high-risk customers before they cancel, this system provides the 
 👉 **[View the Live Interactive Tableau Dashboard Here]([INSERT_YOUR_TABLEAU_PUBLIC_LINK_HERE])**
 
 ## 🚀 Key Business Impact
-* Built a cloud-based ETL pipeline in **Snowflake (SQL)** to extract and transform raw subscription records into a clean Analytical Base Table, optimizing the data schema for machine learning ingestion.
+* Built a cloud based ETL pipeline in **Snowflake (SQL)** to extract and transform raw subscription records into a clean Analytical Base Table, optimizing the data schema for machine learning ingestion.
 * Trained a Random Forest classification model using **Python (Scikit-Learn)** to calculate individual customer churn probabilities. Translated these probabilities into a quantified "Revenue-at-Risk" metric by multiplying the risk score by the account's monthly contract value.
 * A probability threshold of **75%** was selected to prioritize precision over recall in high-cost intervention scenarios.
 
