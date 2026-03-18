@@ -30,7 +30,7 @@ By identifying high-risk customers before they cancel, this system provides the 
 * The model achieved an **Average Precision (AP) of 0.58**, reflecting moderate discriminative ability under class imbalance.
 * To determine an appropriate decision boundary, I analyzed the Precision-Recall curve and evaluated F1 scores across probability thresholds. The mathematically optimal F1 score occurred at a threshold of **0.28**, maximizing the harmonic balance between Precision and Recall.
 * However, threshold selection was guided by operational constraints rather than pure mathematical optimization.
-* At a **0.28** threshold, recall increases but precision declines substantially — resulting in a large number of false positives. This could overwhelm the retention team with low-confidence outreach and reduce the ROI of discount interventions.
+* At a **0.28** threshold, recall increases but precision declines substantially, resulting in a large number of false positives. This could overwhelm the retention team with low-confidence outreach and reduce the ROI of discount interventions.
 * To align the model with business capacity and cost structure, the intervention threshold was raised to **0.75**, prioritizing high Precision over Recall. This ensures that retention resources are concentrated on the highest-confidence churn risks, improving efficiency and maximizing expected return on intervention efforts.
   
 
