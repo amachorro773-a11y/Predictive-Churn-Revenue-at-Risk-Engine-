@@ -17,8 +17,7 @@ By identifying high-risk customers before they cancel, this system provides the 
 ## 🚀 Key Business Impact
 * Built a cloud-based ETL pipeline in **Snowflake (SQL)** to extract and transform raw subscription records into a clean Analytical Base Table, optimizing the data schema for machine learning ingestion.
 * Trained a Random Forest classification model using **Python (Scikit-Learn)** to calculate individual customer churn probabilities. Translated these probabilities into a quantified "Revenue-at-Risk" metric by multiplying the risk score by the account's monthly contract value.
-* Converted model outputs into a Revenue-at-Risk calculation: Churn Probability × Monthly Contract Value
-* Implemented a 75% probability threshold in Tableau to isolate high-risk accounts for targeted intervention.
+* A probability threshold of **75%** was selected to prioritize precision over recall in high-cost intervention scenarios.
 
 ## 🧠 Model Evaluation & Trade-Offs
 * **Algorithm Selection:** Selected a **Random Forest Classifier** over Logistic Regression to effectively capture nonlinear relationships (e.g., the compounding effect of high prices and low tenure) without requiring heavy feature scaling or transformation.
@@ -26,7 +25,7 @@ By identifying high-risk customers before they cancel, this system provides the 
 * Identified inherent class imbalance within the dataset. Future iterations will test SMOTE (Synthetic Minority Over-sampling Technique) or adjusted class weights to further optimize recall for high-value accounts.
 
 ## 📊 Feature Importance Insights
-The model's feature importance analysis (Mean Decrease in Impurity) indicated that three variables accounted for **73% of the model's predictive power**:
+The model's feature importance analysis (Mean Decrease in Impurity) indicated that three variables represented **73% of total feature importance weight (Mean Decrease in Impurity):**
 1. **Monthly Charges (27%)**: High price sensitivity among specific cohorts.
 2. **Total Charges (26%)**: Cumulative spend threshold fatigue.
 3. **Tenure (20%)**: A critical "flight risk" window during the first 10 months of the customer lifecycle.
