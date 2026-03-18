@@ -1,4 +1,4 @@
-# Predictive Churn & Revenue-at-Risk Engine
+# Telco Customer Predictive Churn & Revenue-at-Risk Engine
 
 <img width="649" height="859" alt="Dashboard 1 (6)" src="https://github.com/user-attachments/assets/1fa7fa81-b5c5-40c3-9397-63e5b7304fc9" />
 
