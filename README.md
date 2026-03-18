@@ -8,20 +8,21 @@
 [![Snowflake](https://img.shields.io/badge/Snowflake-SQL-lightgrey?style=for-the-badge&logo=snowflake)](#)
 
 ## 📌 Executive Summary
-Customer acquisition is expensive, but customer retention is profitable. This project is an end-to-end machine learning and business intelligence pipeline designed to forecast customer churn and quantify the exact financial impact of departing accounts. 
+Customer acquisition is expensive, but customer retention is profitable. So I implemented an end-to-end machine learning and business intelligence pipeline designed to forecast customer churn and quantify the exact financial impact of departing accounts. 
 
 By identifying high-risk customers before they cancel, this system provides the Customer Success team with a prioritized intervention roster to protect Annual Recurring Revenue (ARR).
 
 👉 **[View the Live Interactive Tableau Dashboard Here]([INSERT_YOUR_TABLEAU_PUBLIC_LINK_HERE])**
 
 ## 🚀 Key Business Impact
-* **Cloud Data Engineering:** Engineered a cloud-based ETL pipeline in **Snowflake (SQL)** to extract and transform raw subscription records into a clean Analytical Base Table, optimizing the data schema for machine learning ingestion.
-* **Predictive Analytics:** Developed a Random Forest classification model using **Python (Scikit-Learn)** to calculate individual customer churn probabilities. Translated these probabilities into a quantified "Revenue-at-Risk" metric by multiplying the risk score by the account's monthly contract value.
-* **Strategic Intervention:** By filtering for accounts exceeding a 75% churn probability threshold, the resulting Tableau dashboard allows the business to isolate the highest-risk cohort and prioritize outreach to protect immediate ARR. 
+* **Cloud Data Engineering:** Built a cloud-based ETL pipeline in **Snowflake (SQL)** to extract and transform raw subscription records into a clean Analytical Base Table, optimizing the data schema for machine learning ingestion.
+* **Predictive Analytics:** Trained a Random Forest classification model using **Python (Scikit-Learn)** to calculate individual customer churn probabilities. Translated these probabilities into a quantified "Revenue-at-Risk" metric by multiplying the risk score by the account's monthly contract value.
+* **Financial Translation:** Converted model outputs into a Revenue-at-Risk calculation: Churn Probability × Monthly Contract Value
+* **Operational Prioritization:** Implemented a 75% probability threshold in Tableau to isolate high-risk accounts for targeted intervention.
 
 ## 🧠 Model Evaluation & Trade-Offs
-* **Algorithm Selection:** Selected a **Random Forest Classifier** over Logistic Regression to effectively capture non-linear relationships (e.g., the compounding effect of high prices and low tenure) without requiring heavy feature scaling or transformation.
-* **Performance Metrics:** The baseline model achieved an overall accuracy of **77%**. Because the business cost of a false negative (missing a churning customer) is higher than a false positive, analysis heavily weighed **Recall (0.47)** and **Precision (0.60)** for the minority class (Churn = 1).
+* **Algorithm Selection:** Selected a **Random Forest Classifier** over Logistic Regression to effectively capture nonlinear relationships (e.g., the compounding effect of high prices and low tenure) without requiring heavy feature scaling or transformation.
+* **Performance Metrics:** The baseline model achieved an **ROC-AUC score of [0.804]** and an overall accuracy of **77%**. Because the business cost of a false negative (missing a churning customer) is higher than a false positive, analysis heavily weighed **Recall (0.47)** and **Precision (0.60)** for the minority class (Churn = 1).
 * **Next Iteration:** Identified inherent class imbalance within the dataset. Future iterations will test SMOTE (Synthetic Minority Over-sampling Technique) or adjusted class weights to further optimize recall for high-value accounts.
 
 ## 📊 Feature Importance Insights
