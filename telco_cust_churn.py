@@ -111,7 +111,7 @@ optimal_threshold = thresholds[optimal_idx]
 print(f"Mathematically Optimal F1 Threshold: {optimal_threshold:.3f}")
 print(f"Strategic Business Threshold Selected: 0.750")
 
-# 5. Plot the Precision-Recall Curve
+# Plot the Precision-Recall Curve
 plt.figure(figsize=(8, 6))
 plt.plot(recall, precision, color='purple', linewidth=2, label=f'PR Curve (AP = {ap_score:.2f})')
 plt.axvline(x=recall[optimal_idx], color='red', linestyle='--', label=f'Optimal F1 Threshold ({optimal_threshold:.2f})')
