@@ -15,10 +15,10 @@ By identifying high-risk customers before they cancel, this system provides the 
 👉 **[View the Live Interactive Tableau Dashboard Here]([INSERT_YOUR_TABLEAU_PUBLIC_LINK_HERE])**
 
 ## 🚀 Key Business Impact
-* **Cloud Data Engineering:** Built a cloud-based ETL pipeline in **Snowflake (SQL)** to extract and transform raw subscription records into a clean Analytical Base Table, optimizing the data schema for machine learning ingestion.
-* **Predictive Analytics:** Trained a Random Forest classification model using **Python (Scikit-Learn)** to calculate individual customer churn probabilities. Translated these probabilities into a quantified "Revenue-at-Risk" metric by multiplying the risk score by the account's monthly contract value.
-* **Financial Translation:** Converted model outputs into a Revenue-at-Risk calculation: Churn Probability × Monthly Contract Value
-* **Operational Prioritization:** Implemented a 75% probability threshold in Tableau to isolate high-risk accounts for targeted intervention.
+* Built a cloud-based ETL pipeline in **Snowflake (SQL)** to extract and transform raw subscription records into a clean Analytical Base Table, optimizing the data schema for machine learning ingestion.
+* Trained a Random Forest classification model using **Python (Scikit-Learn)** to calculate individual customer churn probabilities. Translated these probabilities into a quantified "Revenue-at-Risk" metric by multiplying the risk score by the account's monthly contract value.
+* Converted model outputs into a Revenue-at-Risk calculation: Churn Probability × Monthly Contract Value
+* Implemented a 75% probability threshold in Tableau to isolate high-risk accounts for targeted intervention.
 
 ## 🧠 Model Evaluation & Trade-Offs
 * **Algorithm Selection:** Selected a **Random Forest Classifier** over Logistic Regression to effectively capture nonlinear relationships (e.g., the compounding effect of high prices and low tenure) without requiring heavy feature scaling or transformation.
