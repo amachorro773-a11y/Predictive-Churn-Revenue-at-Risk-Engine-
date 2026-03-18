@@ -16,22 +16,21 @@ By identifying high-risk customers before they cancel, this system provides the 
 
 ## 🚀 Key Business Impact
 * **Cloud Data Engineering:** Engineered a cloud-based ETL pipeline in **Snowflake (SQL)** to extract and transform raw subscription records into a clean Analytical Base Table, optimizing the data schema for machine learning ingestion.
-* **Predictive Analytics:** Developed a Random Forest classification model using **Python (Scikit-Learn)** to calculate individual customer churn probabilities, successfully isolating the top three financial drivers of contract cancellation.
-* **Business Intelligence & Strategy:** Designed an executive-facing **Tableau** decision-support dashboard that translated ML probability scores into a quantified "Revenue-at-Risk" metric, providing the sales team with a dynamic, prioritized intervention roster.
+* **Predictive Analytics:** Developed a Random Forest classification model using **Python (Scikit-Learn)** to calculate individual customer churn probabilities. Translated these probabilities into a quantified "Revenue-at-Risk" metric by multiplying the risk score by the account's monthly contract value.
+* **Strategic Intervention:** By filtering for accounts exceeding a 75% churn probability threshold, the resulting Tableau dashboard allows the business to isolate the highest-risk cohort and prioritize outreach to protect immediate ARR. 
 
-## 🧠 Strategic Insights
-The machine learning model identified that **73% of the decision to churn** is driven by three key factors:
+## 🧠 Model Evaluation & Trade-Offs
+* **Algorithm Selection:** Selected a **Random Forest Classifier** over Logistic Regression to effectively capture non-linear relationships (e.g., the compounding effect of high prices and low tenure) without requiring heavy feature scaling or transformation.
+* **Performance Metrics:** The baseline model achieved an overall accuracy of **77%**. Because the business cost of a false negative (missing a churning customer) is higher than a false positive, analysis heavily weighed **Recall (0.47)** and **Precision (0.60)** for the minority class (Churn = 1).
+* **Next Iteration:** Identified inherent class imbalance within the dataset. Future iterations will test SMOTE (Synthetic Minority Over-sampling Technique) or adjusted class weights to further optimize recall for high-value accounts.
+
+## 📊 Feature Importance Insights
+The model's feature importance analysis (Mean Decrease in Impurity) indicated that three variables accounted for **73% of the model's predictive power**:
 1. **Monthly Charges (27%)**: High price sensitivity among specific cohorts.
 2. **Total Charges (26%)**: Cumulative spend threshold fatigue.
 3. **Tenure (20%)**: A critical "flight risk" window during the first 10 months of the customer lifecycle.
 
-*Recommendation:* Reallocate retention budgets to target accounts within their first year who are paying above the median monthly rate, utilizing the dashboard's "Target Hit List" for direct outreach.
-
-## 🏗️ Technical Architecture
-1. **Data Warehouse:** Raw data loaded and structured within **Snowflake**.
-2. **Feature Engineering:** **SQL** used to handle nulls, encode target variables, and aggregate behavioral metrics.
-3. **Machine Learning:** **Python (Pandas, Scikit-Learn)** utilized for one-hot encoding, train/test splitting, and training a Random Forest Classifier. `predict_proba()` applied to generate continuous risk scores.
-4. **Data Visualization:** Output integrated into **Tableau** to build the "Flight Risk" matrix and executive BANs.
+*Recommendation:* Reallocate retention budgets to target accounts within their first year who are paying above the median monthly rate.
 
 ---
 *Created by [Andy Machorro]([INSERT_YOUR_LINKEDIN_URL_HERE]) | Data Analyst*
