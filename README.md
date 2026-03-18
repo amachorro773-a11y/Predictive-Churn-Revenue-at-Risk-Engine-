@@ -5,7 +5,7 @@
 
 [![Tableau](https://img.shields.io/badge/Tableau-Live_Dashboard-blue?style=for-the-badge&logo=tableau)](https://public.tableau.com/views/PredictiveChurnRevenue-at-RiskEngineTelecoData/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 [![Python](https://img.shields.io/badge/Python-Scikit_Learn-yellow?style=for-the-badge&logo=python)](https://github.com/amachorro773-a11y/Predictive-Churn-Revenue-at-Risk-Engine-/blob/main/telco_cust_churn.py)
-[![Snowflake](https://img.shields.io/badge/Snowflake-SQL-lightgrey?style=for-the-badge&logo=snowflake)](#)
+[![Snowflake](https://img.shields.io/badge/Snowflake-SQL-lightgrey?style=for-the-badge&logo=snowflake)](https://docs.google.com/document/d/1uw4_8KN8PFx2trNOmuHj7WuJ0n_GkJzpqbFk7lKnWBU/edit?tab=t.0)
 
 ## 📌 Executive Summary
 Customer acquisition is expensive, but customer retention is profitable. So I implemented an end-to-end machine learning and business intelligence pipeline designed to forecast customer churn and quantify the exact financial impact of departing accounts. 
