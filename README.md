@@ -23,7 +23,7 @@ By identifying high-risk customers before they cancel, this system provides the 
 ## 🧠 Model Evaluation & Trade-Offs
 * **Algorithm Selection:** Selected a **Random Forest Classifier** over Logistic Regression to effectively capture nonlinear relationships (e.g., the compounding effect of high prices and low tenure) without requiring heavy feature scaling or transformation.
 * **Performance Metrics:** The baseline model achieved an **ROC-AUC score of 0.804** and an overall accuracy of **77%**. Because the business cost of a false negative (missing a churning customer) is higher than a false positive, analysis heavily weighed **Recall (0.47)** and **Precision (0.60)** for the minority class (Churn = 1).
-* **Next Iteration:** Identified inherent class imbalance within the dataset. Future iterations will test SMOTE (Synthetic Minority Over-sampling Technique) or adjusted class weights to further optimize recall for high-value accounts.
+* Identified inherent class imbalance within the dataset. Future iterations will test SMOTE (Synthetic Minority Over-sampling Technique) or adjusted class weights to further optimize recall for high-value accounts.
 
 ## 📊 Feature Importance Insights
 The model's feature importance analysis (Mean Decrease in Impurity) indicated that three variables accounted for **73% of the model's predictive power**:
