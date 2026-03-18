@@ -5,6 +5,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
+from sklearn.metrics import precision_recall_curve, average_precision_score
+import matplotlib.pyplot as plt
+import numpy as np
+
 print("connecting to snowflake")
 conn = snowflake.connector.connect(
     user = "ANDY",
@@ -86,3 +90,34 @@ df_final = df.sort_values(by='CHURN_PROBABILITY_SCORE', ascending=False)
 df_final.to_csv('Churn_Predictions_for_Tableau.csv', index=False)
 
 print("\nSUCCESS! Check your project folder for 'Churn_Predictions_for_Tableau.csv'")
+
+# --- PLOTTING PRECISION RECALL CURVE ---    
+# Get predicted probabilities for the Churn class (Class 1)
+y_scores = rf_model.predict_proba(X_test)[:, 1]
+
+# Compute precision-recall pairs and the Average Precision (AP) score
+precision, recall, thresholds = precision_recall_curve(y_test, y_scores)
+ap_score = average_precision_score(y_test, y_scores)
+
+print(f"Average Precision (AP) Score: {ap_score:.3f}")
+
+# Calculate the F1 score across all thresholds to find the mathematical optimum
+# 1e-10 prevents division by zero
+f1_scores = 2 * (precision * recall) / (precision + recall + 1e-10)
+
+# Locate the exact threshold that maximizes the F1 score
+optimal_idx = np.argmax(f1_scores[:-1])
+optimal_threshold = thresholds[optimal_idx]
+print(f"Mathematically Optimal F1 Threshold: {optimal_threshold:.3f}")
+print(f"Strategic Business Threshold Selected: 0.750")
+
+# 5. Plot the Precision-Recall Curve
+plt.figure(figsize=(8, 6))
+plt.plot(recall, precision, color='purple', linewidth=2, label=f'PR Curve (AP = {ap_score:.2f})')
+plt.axvline(x=recall[optimal_idx], color='red', linestyle='--', label=f'Optimal F1 Threshold ({optimal_threshold:.2f})')
+plt.xlabel("Recall (Percentage of actual churners caught)")
+plt.ylabel("Precision (Accuracy of our churn flags)")
+plt.title("Precision-Recall Tradeoff Analysis")
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
