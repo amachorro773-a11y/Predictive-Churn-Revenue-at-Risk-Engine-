@@ -23,6 +23,14 @@ By identifying high-risk customers before they cancel, this system provides the 
 * **Algorithm Selection:** Selected a **Random Forest Classifier** over Logistic Regression to effectively capture nonlinear relationships (e.g., the compounding effect of high prices and low tenure) without requiring heavy feature scaling or transformation.
 * **Performance Metrics:** The baseline model achieved an **ROC-AUC score of 0.804** and an overall accuracy of **77%**. Because the business cost of a false negative (missing a churning customer) is higher than a false positive, analysis heavily weighed **Recall (0.47)** and **Precision (0.60)** for the minority class (Churn = 1).
 * Identified inherent class imbalance within the dataset. Future iterations will test SMOTE (Synthetic Minority Over-sampling Technique) or adjusted class weights to further optimize recall for high-value accounts.
+* **Threshold Optimization & PR Tradeoff:** The model achieved an Average Precision (AP) of **0.58**. To address inherent class imbalance, I analyzed the Precision-Recall curve to optimize decision boundaries.
+* **Strategic Business Alignment:** While the mathematically optimal F1 score occurred at a threshold of **0.28**, I consciously set the final Tableau dashboard intervention threshold to **0.75**. This decision prioritizes Precision over Recall, ensuring the retention team focuses their limited capacity solely on high-confidence flight risks, thereby maximizing the ROI of discount offers.
+
+
+<img width="800" height="600" alt="Screenshot 2026-03-18 at 11 45 57 AM" src="https://github.com/user-attachments/assets/01e27038-923e-4522-94dd-b67c7cb765b3" />
+
+
+  
 
 ## 📊 Feature Importance Insights
 The model's feature importance analysis (Mean Decrease in Impurity) indicated that three variables represented **73% of total feature importance weight (Mean Decrease in Impurity):**
