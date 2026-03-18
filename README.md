@@ -43,4 +43,4 @@ The model's feature importance analysis (Mean Decrease in Impurity) indicated th
 *Recommendation:* Reallocate retention budgets to target accounts within their first year who are paying above the median monthly rate.
 
 ---
-*Created by [Andy Machorro]([INSERT_YOUR_LINKEDIN_URL_HERE]) | Data Analyst*
+*Created by [Andy Machorro](www.linkedin.com/in/andy-machorro-b22530323) | Data Analyst*
